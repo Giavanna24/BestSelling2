@@ -2,6 +2,7 @@ package com.example.bestselling2;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -23,6 +24,7 @@ public class BooksController {
     public TableColumn<Books, String> author;
     public TableColumn<Books, String> language;
     public TableColumn<Books, String> Genre;
+    public Button addRow;
 
     public void initialize() {
         restoreOrReadData();
@@ -110,5 +112,10 @@ public class BooksController {
         ObservableList temporaryObservableList = FXCollections.observableArrayList(temporaryList);
         // Make that ObservableList the list for my TableView
         allBooksView.setItems(temporaryObservableList);
+    }
+    public void AddRow(){
+        Books extraBook = new Books("",0, 0, "", "", "");
+        allBooksView.getItems().add(extraBook);
+
     }
 }
